@@ -50,6 +50,7 @@ function onDrop(e) {
 
   lastSwap = [fromIndex, toIndex];
   swapTiles(fromIndex, toIndex);
+  findMatches(toIndex);
 }
 
 function areAdjacent(i1, i2) {
@@ -72,6 +73,58 @@ function swapTiles(i1, i2) {
     board[i2].textContent,
     board[i1].textContent
   ];
+}
+
+function findMatches(index) {
+  const row = Math.floor(index / fieldSize); 
+  const col = index % fieldSize; 
+  const matches = new Set();
+
+  let currentSymbol = null;
+  let sequence = [];
+
+  for (let c = 0; c < fieldSize; c++) {
+    const i = row * fieldSize + c;
+    const symbol = board[i].dataset.symbol;
+
+    if (symbol === currentSymbol) {
+      sequence.push(i);
+    } else {
+      if (sequence.length >= 3) {
+        sequence.forEach(i => matches.add(i));
+      }
+      currentSymbol = symbol;
+      sequence = [i];
+    }
+  }
+
+  if (sequence.length >= 3) {
+    sequence.forEach(i => matches.add(i));
+  }
+
+  currentSymbol = null;
+  sequence = [];
+
+  for (let r = 0; r < fieldSize; r++) {
+    const i = r * fieldSize + col;
+    const symbol = board[i].dataset.symbol;
+
+    if (symbol === currentSymbol) {
+      sequence.push(i);
+    } else {
+      if (sequence.length >= 3) {
+        sequence.forEach(i => matches.add(i));
+      }
+      currentSymbol = symbol;
+      sequence = [i];
+    }
+  }
+
+  if (sequence.length >= 3) {
+    sequence.forEach(i => matches.add(i));
+  }
+  console.log(matches);
+  return [...matches];
 }
 
 createBoard();
