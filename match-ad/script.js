@@ -50,8 +50,8 @@ function onDrop(e) {
 
   lastSwap = [fromIndex, toIndex];
   swapTiles(fromIndex, toIndex);
-  const matches = new Set ([...findMatches(toIndex)].concat([...findMatches(fromIndex)]));
-  console.log(matches);
+  const matches = new Set (findMatches(toIndex).concat(findMatches(fromIndex)));
+  setTimeout(() => removeMatches(matches), 500);
 }
 
 function areAdjacent(i1, i2) {
@@ -124,8 +124,13 @@ function findMatches(index) {
   if (sequence.length >= 3) {
     sequence.forEach(i => matches.add(i));
   }
-  console.log(matches);
   return [...matches];
 }
 
+function removeMatches(matches){
+  matches.forEach(i => {
+    board[i].dataset.symbol = "";
+    board[i].textContent = "";
+  });
+}
 createBoard();
