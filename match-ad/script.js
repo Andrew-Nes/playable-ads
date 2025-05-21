@@ -1,6 +1,6 @@
 const grid = document.getElementById("gameGrid");
-const restartBtn = document.getElementById("restartButton");
-const ctaBtn = document.getElementById("ctaButton");
+const restartButton = document.getElementById("restartButton");
+const ctaButton = document.getElementById("ctaButton");
 
 const fieldSize = 5; 
 const symbols = ['🍎', '🍌', '🍒', '🍇', '🍓', '🍍'];
@@ -20,6 +20,58 @@ function createBoard() {
     tile.dataset.symbol = symbol;
     grid.appendChild(tile);
     board.push(tile);
+
+    tile.addEventListener("dragstart", onDragStart);
+    tile.addEventListener("dragover", onDragOver);
+    tile.addEventListener("drop", onDrop);
+    tile.addEventListener("dragend", onDragEnd);
   }
 }
+
+restartButton.addEventListener("click", createBoard);
+function onDragStart(e) {
+  this.classList.add("dragging");
+  e.dataTransfer.setData("text/plain", this.dataset.index);
+}
+
+function onDragOver(e) {
+  e.preventDefault();
+}
+
+function onDragEnd() {
+  this.classList.remove("dragging");
+}
+
+function onDrop(e) {
+  e.preventDefault();
+  const fromIndex = parseInt(e.dataTransfer.getData("text/plain"));
+  const toIndex = parseInt(this.dataset.index);
+  if (!areAdjacent(fromIndex, toIndex)) return;
+
+  lastSwap = [fromIndex, toIndex];
+  swapTiles(fromIndex, toIndex);
+}
+
+function areAdjacent(i1, i2) {
+  const row1 = Math.floor(i1 / fieldSize);
+  const col1 = i1 % fieldSize;
+  const row2 = Math.floor(i2 / fieldSize);
+  const col2 = i2 % fieldSize;
+  return (
+    (Math.abs(row1 - row2) === 1 && col1 === col2) ||
+    (Math.abs(col1 - col2) === 1 && row1 === row2)
+  );
+}
+
+function swapTiles(i1, i2) {
+  [board[i1].dataset.symbol, board[i2].dataset.symbol] = [
+    board[i2].dataset.symbol,
+    board[i1].dataset.symbol
+  ];
+  [board[i1].textContent, board[i2].textContent] = [
+    board[i2].textContent,
+    board[i1].textContent
+  ];
+}
+
 createBoard();
