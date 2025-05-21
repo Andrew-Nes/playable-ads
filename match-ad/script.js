@@ -50,7 +50,8 @@ function onDrop(e) {
 
   lastSwap = [fromIndex, toIndex];
   swapTiles(fromIndex, toIndex);
-  findMatches(toIndex);
+  const matches = new Set ([...findMatches(toIndex)].concat([...findMatches(fromIndex)]));
+  console.log(matches);
 }
 
 function areAdjacent(i1, i2) {
