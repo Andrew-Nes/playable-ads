@@ -1,10 +1,16 @@
 const grid = document.getElementById("gameGrid");
 const restartButton = document.getElementById("restartButton");
 const ctaButton = document.getElementById("ctaButton");
+const score = document.getElementById("score");
+const timer = document.getElementById("timer");
 
 const fieldSize = 5; 
 const symbols = ['🍎', '🍌', '🍒', '🍇', '🍓', '🍍'];
+const SCOREAMPLIFIER = 10;
 let board = []; 
+let scoreCounter = 0;
+let timeLeft = 20;
+let timerInterval = null;
 
 function createBoard() {
   board = [];
@@ -26,9 +32,17 @@ function createBoard() {
     tile.addEventListener("drop", onDrop);
     tile.addEventListener("dragend", onDragEnd);
   }
+  startTimer();
 }
 
-restartButton.addEventListener("click", createBoard);
+restartButton.addEventListener("click", () => {
+  clearInterval(timerInterval);
+  scoreCounter = 0;
+  score.textContent = 0;
+  ctaButton.classList.add("hidden");
+  createBoard();
+});
+
 function onDragStart(e) {
   this.classList.add("dragging");
   e.dataTransfer.setData("text/plain", this.dataset.index);
@@ -133,6 +147,8 @@ function removeMatches(matches){
     board[i].dataset.symbol = "";
     board[i].textContent = "";
   });
+   updateScore([...matches].length * SCOREAMPLIFIER);
+   checkWin();
 }
 
 function refill() {
@@ -154,6 +170,37 @@ function refill() {
       board[i].dataset.symbol = symbol;
       board[i].textContent = symbol;
     }
+  }
+}
+
+function updateScore(points) {
+  scoreCounter += points;
+  score.textContent = scoreCounter;
+}
+
+function startTimer() {
+  timeLeft = 30;
+  timer.textContent = timeLeft;
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    timer.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
+
+function endGame(won = false) {
+  clearInterval(timerInterval);
+  ctaButton.classList.remove("hidden");
+  ctaButton.textContent = won ? "🎉 You win! Click to try more" : "⏰ Time's up! Click to try more";
+}
+
+function checkWin() {
+  if (scoreCounter >= 90) {
+    endGame(true);
   }
 }
 createBoard();

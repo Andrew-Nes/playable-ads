@@ -73,3 +73,11 @@ button:hover {
 .hidden {
   display: none;
 }
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
