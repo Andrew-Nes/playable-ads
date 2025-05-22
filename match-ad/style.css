@@ -1,3 +1,26 @@
+ :root {
+  --max-width-mobile: 100%;
+  --tile-size-mobile: 44px;
+  --font-size-base: 15px;
+  --gap-size-mobile: 5px;
+  --border-radius: 12px;
+  --bg-gradient-1: #ffd6e8;
+  --bg-gradient-2: #d6ffe6;
+  --bg-gradient-3: #fff3b0;
+  
+  --button-bg-1: #ff7e5f;
+  --button-bg-2: #feb47b;
+  --button-hover-bg-1: #ff6a4f;
+  --button-hover-bg-2: #fe9a6b;
+
+  --stat-bg: #fff9e6;
+  --stat-color: #ff8f00;
+  --stat-font-size: 1.2rem;
+  --stat-border-radius: 10px;
+  --stat-padding: 10px 16px;
+  --stat-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,69 +28,108 @@
 }
 
 body {
-  font-family: sans-serif;
-  background: #f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  background: linear-gradient(135deg,
+    var(--bg-gradient-1),
+    var(--bg-gradient-2),
+    var(--bg-gradient-3)
+  );
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .ad-container {
   width: 100%;
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: var(--max-width-mobile);
   padding: 20px;
+  margin: auto;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
 }
 
 h1 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  position: relative;
+  font-size: 1.6rem;
+  background: linear-gradient(45deg,
+    #ff7e5f,
+    #feb47b,
+    #ffd6e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 127, 95, 0.4), 0 0 10px rgba(255, 127, 95, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 127, 95, 0.6), 0 0 20px rgba(255, 127, 95, 0.4);
+  }
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
+  gap: var(--gap-size-mobile);
   margin-bottom: 15px;
 }
 
 .tile {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  background: linear-gradient(145deg, #f8f8f8, #e6e6e6);
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: calc(var(--tile-size-mobile) * 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   cursor: grab;
-  border-radius: 6px;
   user-select: none;
-  transition: transform 0.2s;
 }
 
+.tile:hover,
 .tile:active {
   transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  background: #007BFF;
-  color: white;
-  cursor: pointer;
+  padding: 12px 24px;
   margin: 5px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: linear-gradient(45deg,
+    var(--button-bg-1),
+    var(--button-bg-2)
+  );
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background: #0056b3;
+   background: linear-gradient(45deg,
+    var(--button-hover-bg-1),
+    var(--button-hover-bg-2)
+  );
+  transform: translateY(-2px);
 }
 
 .hidden {
@@ -76,8 +138,41 @@ button:hover {
 
 .info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 1rem;
+  gap: 10px;
   margin-bottom: 15px;
-  color: #333;
+  font-size: 1rem;
+}
+
+.score-container,
+.timer-container {
+  flex: 1;
+  min-width: 45%;
+  padding: var(--stat-padding);
+  background: var(--stat-bg);
+  border-radius: var(--stat-border-radius);
+  box-shadow: var(--stat-shadow);
+  color: var(--stat-color);
+  font-weight: bold;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.score-container span:last-child,
+.timer-container span:last-child {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: var(--stat-font-size);
+}
+
+.score-container,
+.timer-container {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
