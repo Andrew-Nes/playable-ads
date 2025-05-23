@@ -1,9 +1,18 @@
  :root {
   --max-width-mobile: 100%;
+  --max-width-tablet: 500px;
+  --max-width-desktop: 600px;
+
   --tile-size-mobile: 44px;
+  --tile-size-tablet: 48px;
+  --tile-size-desktop: 52px;
+
   --font-size-base: 15px;
   --gap-size-mobile: 5px;
+  --gap-size-tablet: 6px;
+  --gap-size-desktop: 8px;
   --border-radius: 12px;
+
   --bg-gradient-1: #ffd6e8;
   --bg-gradient-2: #d6ffe6;
   --bg-gradient-3: #fff3b0;
@@ -175,4 +184,35 @@ button:hover {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
+}
+
+
+@media (min-width: 600px) {
+  .ad-container {
+    max-width: var(--max-width-tablet);
+  }
+
+  .grid {
+    gap: var(--gap-size-tablet);
+  }
+
+  .tile {
+    min-width: var(--tile-size-tablet);
+    font-size: calc(var(--tile-size-tablet) * 0.6);
+  }
+}
+
+@media (min-width: 900px) {
+  .ad-container {
+    max-width: var(--max-width-desktop);
+  }
+
+  .grid {
+    gap: var(--gap-size-desktop);
+  }
+
+  .tile {
+    min-width: var(--tile-size-desktop);
+    font-size: calc(var(--tile-size-desktop) * 0.6);
+  }
 }
