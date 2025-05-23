@@ -104,7 +104,7 @@ h1 {
   border: 2px solid #ddd;
   border-radius: var(--border-radius);
   font-size: calc(var(--tile-size-mobile) * 0.6);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   cursor: grab;
   user-select: none;
@@ -114,6 +114,29 @@ h1 {
 .tile:active {
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tile.removing {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.tile.adding {
+  animation: pop-in 0.4s ease forwards;
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 button {

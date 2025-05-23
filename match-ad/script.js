@@ -7,6 +7,7 @@ const timer = document.getElementById("timer");
 const fieldSize = 5; 
 const symbols = ['🍎', '🍌', '🍒', '🍇', '🍓', '🍍'];
 const SCOREAMPLIFIER = 10;
+const ANIMATIONDELAY = 300;
 let board = []; 
 let scoreCounter = 0;
 let timeLeft = 20;
@@ -65,7 +66,7 @@ function onDrop(e) {
   lastSwap = [fromIndex, toIndex];
   swapTiles(fromIndex, toIndex);
   const matches = new Set (findMatches(toIndex).concat(findMatches(fromIndex)));
-  setTimeout(() => removeMatches(matches), 500);
+  setTimeout(() => removeMatches(matches), ANIMATIONDELAY + 100);
   setTimeout(refill, 1000);
 }
 
@@ -144,9 +145,17 @@ function findMatches(index) {
 
 function removeMatches(matches){
   matches.forEach(i => {
-    board[i].dataset.symbol = "";
-    board[i].textContent = "";
+    const tile = board[i];
+    tile.classList.add("removing");
   });
+    setTimeout(() => {
+      matches.forEach(i => {
+      const tile = board[i];
+      tile.dataset.symbol = "";
+      tile.textContent = "";
+      tile.classList.remove("removing");
+    });
+  }, ANIMATIONDELAY)
    updateScore([...matches].length * SCOREAMPLIFIER);
    checkWin();
 }
@@ -169,6 +178,10 @@ function refill() {
       const symbol = symbols[Math.floor(Math.random() * symbols.length)];
       board[i].dataset.symbol = symbol;
       board[i].textContent = symbol;
+      board[i].classList.add("adding");
+      setTimeout(() => {
+        board[i].classList.remove("adding");
+      }, ANIMATIONDELAY);
     }
   }
 }
