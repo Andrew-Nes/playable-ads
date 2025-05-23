@@ -3,6 +3,7 @@ const restartButton = document.getElementById("restartButton");
 const ctaButton = document.getElementById("ctaButton");
 const score = document.getElementById("score");
 const timer = document.getElementById("timer");
+const popup = document.querySelector(".popup");
 
 const fieldSize = 5; 
 const symbols = ['🍎', '🍌', '🍒', '🍇', '🍓', '🍍'];
@@ -12,6 +13,11 @@ let board = [];
 let scoreCounter = 0;
 let timeLeft = 20;
 let timerInterval = null;
+
+ctaButton.addEventListener("click", () => {
+  popup.classList.add("hidden");
+  window.open("https://example.com ", "_blank");
+});
 
 function createBoard() {
   board = [];
@@ -207,8 +213,8 @@ function startTimer() {
 
 function endGame(won = false) {
   clearInterval(timerInterval);
-  ctaButton.classList.remove("hidden");
   ctaButton.textContent = won ? "🎉 You win! Click to try more" : "⏰ Time's up! Click to try more";
+  popup.classList.remove("hidden");
 }
 
 function checkWin() {
