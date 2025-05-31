@@ -24,6 +24,29 @@ module.exports = {
     }],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
+    'import/order': ['error', {
+    'groups': [
+      'builtin',    
+      'external',   
+      'internal',   
+      ['parent', 'sibling', 'index'],
+      'object',     
+      'type'        
+    ],
+ pathGroups: [
+    {
+      pattern: '**/*.css',
+      group: 'index',
+      position: 'after',
+    },
+  ],
+  pathGroupsExcludedImportTypes: ['builtin'],
+  'newlines-between': 'always',
+  alphabetize: {
+    order: 'asc',
+    caseInsensitive: true,
+  },
+  }],
   },
   settings: {
     'import/resolver': {
