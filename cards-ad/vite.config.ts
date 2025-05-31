@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
-import { singleFile } from 'vite-plugin-singlefile';
+
+import { viteSingleFile } from 'vite-plugin-singlefile';
 
 export default defineConfig({
-  plugins: [singleFile()],
+  plugins: [viteSingleFile()],
   build: {
     target: 'es2015',
     assetsInlineLimit: Infinity,
