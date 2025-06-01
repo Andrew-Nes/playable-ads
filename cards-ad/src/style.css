@@ -1,12 +1,16 @@
 :root {
-  --card-width: 80px;
-  --card-height: 120px;
+  --card-width: 60px;
+  --card-height: 90px;
+  --card-radius: 8px;
+  --card-bg: white;
+  --card-border: #999;
+  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   --gap: 12px;
   --font-size: 16px;
 
-  --bg-color: #0b0c10;             /* page background */
-  --table-color: #1c1f26;          /* table container */
-  --felt-color: #2e3b2c;           /* subtle greenish felt */
+  --bg-color: #0b0c10;             
+  --table-color: #1c1f26;          
+  --felt-color: #2e3b2c;           
   --text-color: #ffffff;
   --border-radius: 12px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
