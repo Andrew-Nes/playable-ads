@@ -46,7 +46,10 @@
     4px 4px 0px rgba(0, 0, 0, 0.15),
     6px 6px 0px rgba(0, 0, 0, 0.1); 
   position: relative;
+  transform: rotate(-1deg);
+  transition: transform 0.2s;
 }
+
 .play-slot {
   border: 2px dashed silver;
 }
