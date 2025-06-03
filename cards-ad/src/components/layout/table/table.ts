@@ -1,3 +1,5 @@
+
+import { playRound } from '../../game/play-round';
 import './table.css';
 
 export function setupLayout(root: HTMLElement) {
@@ -29,9 +31,13 @@ export function setupLayout(root: HTMLElement) {
   const playerDeck = document.createElement('div');
   playerDeck.className = 'card-slot deck-slot';
   playerZone.appendChild(playerDeck);
-
+  
   table.appendChild(dealerZone);
   table.appendChild(playerZone);
   root.appendChild(title);
   root.appendChild(table);
+
+  playerDeck.addEventListener('click', () => {
+  playRound();
+});
 }

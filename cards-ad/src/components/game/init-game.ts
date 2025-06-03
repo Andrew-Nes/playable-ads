@@ -1,4 +1,4 @@
-import { TIME } from "src/utils";
+import { TIME } from "../../utils";
 import { dealCards } from "../deck/deck";
 import { updateGameState } from "./game-state";
 import { startTimer } from "./timer";

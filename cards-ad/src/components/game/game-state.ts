@@ -1,4 +1,4 @@
-import { GameState, TIME } from "src/utils";
+import { GameState, TIME } from "../../utils";
 
 
 let state: GameState = {
