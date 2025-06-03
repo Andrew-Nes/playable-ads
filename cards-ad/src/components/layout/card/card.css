@@ -31,17 +31,6 @@
 
 }
 
-.card__back {
-  background: repeating-linear-gradient(
-    45deg,
-    #004080,
-    #004080 5px,
-    #0074d9 5px,
-    #0074d9 10px
-  );
-  transform: rotateY(180deg);
-}
-
 .card__corner {
   display: flex;
   flex-direction: column;

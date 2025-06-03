@@ -1,0 +1,52 @@
+.game-table {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
+  background-color: var(--felt-color);
+  padding: var(--gap);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.zone {
+  display: flex;
+  gap: var(--gap);
+}
+
+.card-slot {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-slot {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  background-image: url('../../../../public/images/card-back.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    2px 2px 0px rgba(0, 0, 0, 0.2),
+    4px 4px 0px rgba(0, 0, 0, 0.15),
+    6px 6px 0px rgba(0, 0, 0, 0.1); 
+  position: relative;
+}
+.play-slot {
+  border: 2px dashed silver;
+}
