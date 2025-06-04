@@ -1,8 +1,10 @@
 
-import { playRound } from 'src/components/game/play-round';
+import { playRound } from 'src/components/game/play-round/play-round';
+import { initGame } from 'src/components/game/init-game/init-game';
+import { createEndGameOverlay } from '../endgame-overlay/endgame-overlay';
 
 import './table.css';
-import { initGame } from 'src/components/game/init-game';
+
 
 export function setupLayout(root: HTMLElement) {
   const title = document.createElement('h1');
@@ -38,10 +40,12 @@ export function setupLayout(root: HTMLElement) {
   table.appendChild(playerZone);
   root.appendChild(title);
   root.appendChild(table);
+  
+  createEndGameOverlay(root);
 
   playerDeck.addEventListener('click', () => {
   playRound();
   });
-  
+
   initGame();
 }

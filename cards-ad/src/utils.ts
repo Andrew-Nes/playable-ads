@@ -12,7 +12,7 @@ export interface GameState {
   playerHand: Card[];
   dealerHand: Card[];
   round: number;
-  winner: 'player' | 'dealer' | 'draw' | null;
+  roundWinner: 'player' | 'dealer' | 'draw' | null;
   timer: number;
   roundOngoing: boolean;
   }

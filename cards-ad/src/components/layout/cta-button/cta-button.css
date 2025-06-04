@@ -1,0 +1,14 @@
+.cta-button {
+  display: inline-block;
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+  text-decoration: none;
+  padding: var(--cta-padding);
+  font-size: var(--cta-font-size);
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #005fa3;
+}

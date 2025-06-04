@@ -1,6 +1,6 @@
 import { debounce } from "src/utils";
-import { compareCards } from "./compare-cards/compare-cards";
-import { getGameState, updateGameState } from "./game-state/game-state";
+import { compareCards } from "../compare-cards/compare-cards";
+import { getGameState, updateGameState } from "../game-state/game-state";
 
 
 export async function playRound(): Promise<void> {
