@@ -1,5 +1,5 @@
-import { setupLayout } from './components/layout/table/table';
-import { createCardElement } from './components/layout/card/card';
+
+import { setupLayout } from './components/layout/setup-layout/setup-layout';
 
 import './style.css';
 

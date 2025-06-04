@@ -1,15 +1,9 @@
-
 import { playRound } from 'src/components/game/play-round/play-round';
-import { initGame } from 'src/components/game/init-game/init-game';
-import { createEndGameOverlay } from '../endgame-overlay/endgame-overlay';
 
 import './table.css';
 
 
-export function setupLayout(root: HTMLElement) {
-  const title = document.createElement('h1');
-  title.className = 'main-title'
-  title.textContent = 'Card Game';
+export function createTable(root: HTMLElement) {
 
   const table = document.createElement('div');
   table.className = 'game-table';
@@ -36,16 +30,12 @@ export function setupLayout(root: HTMLElement) {
   playerDeck.className = 'card-slot deck-slot';
   playerZone.appendChild(playerDeck);
   
+  root.appendChild(table);
   table.appendChild(dealerZone);
   table.appendChild(playerZone);
-  root.appendChild(title);
-  root.appendChild(table);
   
-  createEndGameOverlay(root);
 
   playerDeck.addEventListener('click', () => {
   playRound();
   });
-
-  initGame();
 }
