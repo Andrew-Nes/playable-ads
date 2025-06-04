@@ -1,4 +1,4 @@
-import { GameState, TIME } from "../../utils";
+import { GameState, gameTime } from "src/utils";
 
 
 let state: GameState = {
@@ -6,7 +6,7 @@ let state: GameState = {
   dealerHand: [],
   round: 1,
   winner: null,
-  timer: TIME,
+  timer: gameTime,
 };
 
 export function getGameState(): Readonly<GameState> {

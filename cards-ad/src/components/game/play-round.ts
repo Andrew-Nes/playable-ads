@@ -1,5 +1,5 @@
-import { compareCards } from "./compare-cards";
-import { getGameState, updateGameState } from "./game-state";
+import { compareCards } from "./compare-cards/compare-cards";
+import { getGameState, updateGameState } from "./game-state/game-state";
 
 export function playRound(): void {
   const state = getGameState();

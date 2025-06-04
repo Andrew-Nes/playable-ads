@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^22.15.29",
     "eslint": "^9.27.0",
     "eslint-plugin-import": "^2.31.0",
     "prettier": "^3.5.3",
