@@ -1,8 +1,14 @@
+import { debounce } from "src/utils";
 import { compareCards } from "./compare-cards/compare-cards";
 import { getGameState, updateGameState } from "./game-state/game-state";
 
-export function playRound(): void {
+
+export async function playRound(): Promise<void> {
   const state = getGameState();
+
+  if (state.roundOngoing) return;
+  updateGameState({roundOngoing: true})
+
   const playerCard = state.playerHand.shift();
   const dealerCard = state.dealerHand.shift();
 
@@ -22,10 +28,13 @@ export function playRound(): void {
     state.dealerHand.push(dealerCard);
   }
 
+  await debounce(1000);
+
   updateGameState({
     playerHand: state.playerHand,
     dealerHand: state.dealerHand,
     round: state.round + 1,
+    roundOngoing: false
   });
 
   console.log(winner);

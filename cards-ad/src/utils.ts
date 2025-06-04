@@ -14,6 +14,7 @@ export interface GameState {
   round: number;
   winner: 'player' | 'dealer' | 'draw' | null;
   timer: number;
+  roundOngoing: boolean;
   }
 
 export const suits: Suit[] = ['♠', '♥', '♦', '♣'];
@@ -36,3 +37,7 @@ export const rankValues: Record<Rank, number> = {
   'K': 13,
   'A': 14, 
 };
+
+export function debounce(ms: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
