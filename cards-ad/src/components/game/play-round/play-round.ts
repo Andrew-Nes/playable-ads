@@ -1,12 +1,14 @@
-import { debounce } from "src/utils";
+import { debounce, Messages } from "src/utils";
 import { compareCards } from "../compare-cards/compare-cards";
 import { getGameState, updateGameState } from "../game-state/game-state";
+import { showMessage } from "../show-message/show-message";
 
 
 export async function playRound(): Promise<void> {
   const state = getGameState();
 
   if (state.roundOngoing) return;
+
   updateGameState({roundOngoing: true})
 
   const playerCard = state.playerHand.shift();
@@ -27,8 +29,10 @@ export async function playRound(): Promise<void> {
     state.playerHand.push(playerCard);
     state.dealerHand.push(dealerCard);
   }
-
+  
   await debounce(1000);
+
+  showMessage(Messages[winner], 1000);
 
   updateGameState({
     playerHand: state.playerHand,
@@ -38,6 +42,5 @@ export async function playRound(): Promise<void> {
   });
 
   console.log(winner);
-  // TODO Add check win function;
   // TODO Add cards animation;
 }

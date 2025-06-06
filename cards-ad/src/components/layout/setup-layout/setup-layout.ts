@@ -1,4 +1,5 @@
 import { createEndGameOverlay } from "../endgame-overlay/endgame-overlay";
+import { createMessageWindow } from "../messages/messages";
 import { createTable } from "../table/table";
 
 import { initGame } from "src/components/game/init-game/init-game";
@@ -10,6 +11,8 @@ export function setupLayout(root: HTMLElement) {
   root.appendChild(title);
  
   createTable(root);
+
+  createMessageWindow(root);
 
   createEndGameOverlay(root);
 

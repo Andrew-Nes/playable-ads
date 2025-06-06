@@ -1,5 +1,9 @@
 :root {
 
+  /* Basics */
+
+    --basic-font-size: 1rem;
+
   /* cards */
   
   --card-width: 60px;
@@ -9,7 +13,6 @@
   --card-border: #999;
   --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   --gap: 24px;
-  --font-size: 16px;
 
   /* Table */
 
@@ -33,15 +36,20 @@
   --popup-padding: 1.25rem;
   --popup-border-radius: 0.75rem;
   --popup-max-width: 90%;
-  --popup-font-size: 1rem;
   --title-font-size: 1.5rem;
-  --result-font-size: 1rem;
-  --cta-font-size: 1rem;
   --cta-padding: 0.75rem 1.5rem;
 
   /* Effects */
   --blur-strength: 6px;
   --popup-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+  /* Message */
+  --message-font-size: 1rem;
+  --message-bg: rgba(0, 0, 0, 0.7);
+  --message-color: #fff;
+  --message-padding: 0.75rem 1.5rem;
+  --message-radius: 12px;
+  --message-z: 999;
 }
 
 body, html {
@@ -60,4 +68,8 @@ body, html {
   align-items: center;
   justify-content: center;
   padding: var(--gap);
+}
+
+.hidden {
+  display: none;
 }
