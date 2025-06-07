@@ -13,10 +13,12 @@ export function createTable(root: HTMLElement) {
 
   const dealerPlay = document.createElement('div');
   dealerPlay.className = 'card-slot play-slot';
+  dealerPlay.id = 'dealer-play';
   dealerZone.appendChild(dealerPlay);
 
   const dealerDeck = document.createElement('div');
   dealerDeck.className = 'card-slot deck-slot';
+  dealerDeck.id = 'dealer-deck'
   dealerZone.appendChild(dealerDeck);
 
   const playerZone = document.createElement('div');
@@ -24,17 +26,18 @@ export function createTable(root: HTMLElement) {
 
   const playerPlay = document.createElement('div');
   playerPlay.className = 'card-slot play-slot';
+  playerPlay.id = 'player-play';
   playerZone.appendChild(playerPlay);
 
   const playerDeck = document.createElement('div');
   playerDeck.className = 'card-slot deck-slot';
+  playerDeck.id = 'player-deck';
   playerZone.appendChild(playerDeck);
   
   root.appendChild(table);
   table.appendChild(dealerZone);
   table.appendChild(playerZone);
   
-
   playerDeck.addEventListener('click', () => {
   playRound();
   });

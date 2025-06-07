@@ -4,10 +4,15 @@ import './card.css';
 
 
 
-export function createCardElement(card: Card, faceDown = false): HTMLDivElement {
+export function createCardElement(card: Card): HTMLDivElement {
+  const cardContainer = document.createElement('div');
+  cardContainer.classList.add('card-container');
+
   const cardEl = document.createElement('div');
   cardEl.classList.add('card');
-  if (faceDown) cardEl.classList.add('is-face-down');
+
+  cardContainer.appendChild(cardEl);
+
   ['♥', '♦'].includes(card.suit) ? cardEl.classList.add('red') : cardEl.classList.add('black');
 
   cardEl.innerHTML = `
@@ -25,5 +30,5 @@ export function createCardElement(card: Card, faceDown = false): HTMLDivElement 
     <div class="card__back"></div>
   `;
 
-  return cardEl;
+  return cardContainer;
 }

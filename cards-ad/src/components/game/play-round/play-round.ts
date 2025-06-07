@@ -2,6 +2,7 @@ import { debounce, Messages } from "src/utils";
 import { compareCards } from "../compare-cards/compare-cards";
 import { getGameState, updateGameState } from "../game-state/game-state";
 import { showMessage } from "../show-message/show-message";
+import { flipCardToPlayzone } from "../../animations/flip-card/flip-card";
 
 
 export async function playRound(): Promise<void> {
@@ -11,8 +12,16 @@ export async function playRound(): Promise<void> {
 
   updateGameState({roundOngoing: true})
 
+  const playerDeck = document.querySelector('#player-deck') as HTMLElement;
+  const dealerDeck = document.querySelector('#dealer-deck') as HTMLElement;
+  const playerPlay = document.querySelector('#player-play') as HTMLElement;
+  const dealerPlay = document.querySelector('#dealer-play') as HTMLElement;
+
   const playerCard = state.playerHand.shift();
   const dealerCard = state.dealerHand.shift();
+
+  console.log(playerDeck, dealerDeck, playerPlay, dealerPlay);
+
 
   if (!playerCard || !dealerCard) {
     console.warn('One of the hands is empty!');
@@ -30,8 +39,13 @@ export async function playRound(): Promise<void> {
     state.dealerHand.push(dealerCard);
   }
   
-  await debounce(1000);
+  Promise.all([
+    flipCardToPlayzone(playerCard, playerDeck, playerPlay),
+    flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay),
+  ]);
 
+  await debounce(1000);
+  
   showMessage(Messages[winner], 1000);
 
   updateGameState({
@@ -42,5 +56,4 @@ export async function playRound(): Promise<void> {
   });
 
   console.log(winner);
-  // TODO Add cards animation;
 }

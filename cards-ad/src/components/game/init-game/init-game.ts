@@ -17,6 +17,6 @@ export async function initGame(): Promise<void> {
   });
 
   await showMessage(Messages.rules, 10000);
-  
+
   startTimer(gameTime);
 }

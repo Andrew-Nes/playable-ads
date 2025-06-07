@@ -5,8 +5,9 @@ let state: GameState = {
   playerHand: [],
   dealerHand: [],
   round: 1,
-  winner: null,
+  roundWinner: null,
   timer: gameTime,
+  roundOngoing: false
 };
 
 export function getGameState(): Readonly<GameState> {
