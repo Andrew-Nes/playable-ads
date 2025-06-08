@@ -9,7 +9,7 @@
   max-width: var(--table-max-width);
   padding: var(--gap);
   background-color: var(--felt-color);
-  background-image: url('../../../../public/images/table-bg.jpg');
+  background-image: url('../../../../public/images/table-bg.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
