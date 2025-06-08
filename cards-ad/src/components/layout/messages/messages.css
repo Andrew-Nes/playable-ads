@@ -1,16 +1,20 @@
 .message-window {
   position: fixed;
   top: 50%;
-  transform: translateX(-50%);
-  transform: translateY(-50%);
-  width: 85%;
-  background: var(--message-bg);
+  left: 50%;
+  width: 90%;
+  max-width: 320px;
+  padding: var(--message-padding);
+  transform: translate(-50%, -50%);
+  background-color: var(--message-bg);
   color: var(--message-color);
   font-size: var(--message-font-size);
-  padding: var(--message-padding);
+  font-family: sans-serif;
+  text-align: center;
   border-radius: var(--message-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 999;
   pointer-events: none;
-  opacity: .8;
-  transition: opacity 0.3s ease;
+  opacity: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }

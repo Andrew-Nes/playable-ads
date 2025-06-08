@@ -7,6 +7,10 @@
   align-items: center;
   gap: var(--gap);
   background-color: var(--felt-color);
+  background-image: url('../../../../public/images/table-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   padding: var(--gap);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);

@@ -4,11 +4,14 @@
   color: var(--cta-text);
   text-decoration: none;
   padding: var(--cta-padding);
-  font-size: var(--cta-font-size);
+  font-size: var(--basic-font-size);
+  font-weight: 600;
+  border: none;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
 }
 
 .cta-button:hover {
   background-color: #005fa3;
+  cursor: pointer;
 }

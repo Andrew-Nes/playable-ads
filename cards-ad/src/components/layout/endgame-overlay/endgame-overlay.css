@@ -13,7 +13,10 @@
 }
 
 .end-popup {
-  background: var(--popup-bg);
+  background-image: url('../../../../public/images/popup-bg.avif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
   color: var(--popup-text);
   padding: var(--popup-padding);
   border-radius: var(--popup-border-radius);
@@ -22,6 +25,7 @@
   text-align: center;
   box-shadow: var(--popup-shadow);
   font-size: var(--popup-font-size);
+  animation: fadeInUp 0.3s ease-out;
 }
 
 .end-title {
@@ -32,4 +36,15 @@
 .end-result {
   font-size: var(--result-font-size);
   margin-bottom: 1rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
