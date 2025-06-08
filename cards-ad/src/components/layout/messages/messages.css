@@ -18,3 +18,21 @@
   opacity: 1;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+/* Tablets */
+
+@media (min-width: 768px) {
+ 
+  .message-window {
+    max-width: 400px;
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+
+  .message-window {
+    max-width: 480px;
+  }
+}

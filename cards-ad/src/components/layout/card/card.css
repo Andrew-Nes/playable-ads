@@ -87,3 +87,16 @@
 .card__front .rank {
   font-weight: bold;
 }
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  
+  .card__center {
+    font-size: 2rem;
+  }
+
+  .card__corner {
+    font-size: 1rem;
+  }
+}

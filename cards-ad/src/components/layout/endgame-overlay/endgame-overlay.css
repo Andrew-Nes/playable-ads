@@ -48,3 +48,22 @@
     transform: translateY(0);
   }
 }
+
+/* Tablets */
+
+@media (min-width: 768px) {
+
+  .end-popup {
+    max-width: 400px;
+    padding: calc(var(--popup-padding) * 1.25);
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+
+  .end-popup {
+    padding: 2rem;
+  }
+}

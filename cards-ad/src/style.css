@@ -82,3 +82,43 @@ body {
 .hidden {
   display: none;
 }
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  
+  :root {
+    --card-width: 80px;
+    --card-height: 120px;
+    --gap: 32px;
+    --basic-font-size: 1.125rem;
+    --popup-font-size: 1.125rem;
+    --title-font-size: 2rem;
+    --message-font-size: 1.125rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+  
+  :root {
+    --card-width: 100px;
+    --card-height: 150px;
+    --gap: 40px;
+    --popup-max-width: 480px;
+    --popup-font-size: 1.25rem;
+    --title-font-size: 2.25rem;
+    --message-font-size: 1.25rem;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+}
+

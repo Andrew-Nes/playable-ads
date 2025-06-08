@@ -50,3 +50,22 @@
 .play-slot {
   border: 2px dashed silver;
 }
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  
+  .game-table {
+    max-width: 600px;
+    padding: calc(var(--gap) * 1.2);
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+
+  .game-table {
+    max-width: 720px;
+  }
+}
