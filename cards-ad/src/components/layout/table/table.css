@@ -1,17 +1,17 @@
 .game-table {
-  max-width:var(--table-max-width);
-  width: 96%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: var(--gap);
+  width: 96%;
+  max-width: var(--table-max-width);
+  padding: var(--gap);
   background-color: var(--felt-color);
   background-image: url('../../../../public/images/table-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: var(--gap);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
 }
@@ -22,12 +22,12 @@
 }
 
 .card-slot {
-  width: var(--card-width);
-  height: var(--card-height);
-  border-radius: var(--card-radius);
   display: flex;
   align-items: center;
   justify-content: center;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
 }
 
 .deck-slot {

@@ -1,40 +1,36 @@
 :root {
 
-  /* Basics */
+ /* Basics */
+  --basic-font-size: 1rem;
+  --spacing: 10px;
+  --gap: 24px;
 
-    --basic-font-size: 1rem;
-    --spacing: 10px;
-
-  /* cards */
-
+  /* Cards */
   --card-width: 60px;
   --card-height: 90px;
   --card-radius: 8px;
   --card-bg: white;
   --card-border: #999;
   --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  --gap: 24px;
 
   /* Table */
   --table-max-width: 360px;
-  --bg-color: linear-gradient(135deg, #054d1c, #0c3815);            
-  --table-color: #1c1f26;          
-  --felt-color: #2e3b2c;           
+  --bg-color: linear-gradient(135deg, #054d1c, #0c3815);
+  --table-color: #1c1f26;
+  --felt-color: #2e3b2c;
   --text-color: #ffffff;
   --border-radius: 12px;
   --highlight: #e0e0e0;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 
-  /* Popup */
-
-   /* Colors */
+  /* Popup - Colors */
   --overlay-bg: rgba(0, 0, 0, 0.4);
   --popup-bg: #fff;
   --popup-text: #333;
   --cta-bg: #0074d9;
   --cta-text: #fff;
 
-  /* Spacing and sizing */
+  /* Popup - Sizing & Spacing */
   --popup-padding: 1.25rem;
   --popup-border-radius: 0.75rem;
   --popup-width: 90%;
@@ -42,7 +38,7 @@
   --title-font-size: 1.5rem;
   --cta-padding: 0.75rem 1.5rem;
 
-  /* Effects */
+  /* Popup - Effects */
   --blur-strength: 6px;
   --popup-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 
@@ -58,14 +54,14 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0 var(--spacing);
+  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
   background-image:
     radial-gradient(circle, rgba(30, 30, 30, 0.85) 0%, rgba(18, 18, 18, 0.95) 100%),
-    url('../public/images/main-bg.jpg'); 
+    url('../public/images/main-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--text-color);
-  font-family: 'Segoe UI', sans-serif;
 }
 
 #app {

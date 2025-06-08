@@ -2,10 +2,10 @@
   display: inline-block;
   background-color: var(--cta-bg);
   color: var(--cta-text);
-  text-decoration: none;
-  padding: var(--cta-padding);
   font-size: var(--basic-font-size);
   font-weight: 600;
+  text-decoration: none;
+  padding: var(--cta-padding);
   border: none;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;

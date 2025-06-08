@@ -39,7 +39,7 @@ export const rankValues: Record<Rank, number> = {
 };
 
 export enum Messages {
-  rules = 'Take a card from your deck and compare with dealers card, whose card is elder takes both, and two beats ace. Take as many dealers card as you can to win. click on your deck to play a round.',
+  rules = 'Take a card from your deck and compare with dealers card, whose card is elder takes both, and two beats ace. Take as many dealers card as you can to win. Click on your deck to play a round.',
   player = 'Player wins round',
   dealer = 'Dealer wins round', 
   tie = 'It is a tie'
