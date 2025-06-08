@@ -1,4 +1,5 @@
 import { playRound } from 'src/components/game/play-round/play-round';
+import { createMessageWindow } from '../messages/messages';
 
 import './table.css';
 
@@ -38,6 +39,8 @@ export function createTable(root: HTMLElement) {
   table.appendChild(dealerZone);
   table.appendChild(playerZone);
   
+  createMessageWindow(table);
+
   playerDeck.addEventListener('click', () => {
   playRound();
   });

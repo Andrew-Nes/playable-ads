@@ -100,3 +100,16 @@
     font-size: 1rem;
   }
 }
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+
+    .card__center {
+    font-size: 2.25rem;
+  }
+
+  .card__corner {
+    font-size: 1.25rem;
+  }
+}
