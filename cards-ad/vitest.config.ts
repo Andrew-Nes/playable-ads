@@ -6,8 +6,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     alias: {
-
       'src': path.resolve(__dirname, './src'),
     },
+    coverage: {
+      provider: 'v8' ,
+      reporter: ['text', 'json', 'html'],
+    }, 
   }
 });
