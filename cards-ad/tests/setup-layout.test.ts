@@ -9,6 +9,7 @@ vi.mock('src/components/layout/table/table', () => ({
     root.appendChild(p);
   }
 }));
+
 vi.mock('src/components/layout/endgame-overlay/endgame-overlay', () => ({
   createEndGameOverlay: (root: HTMLElement) => {
     const p = document.createElement('p');
@@ -16,6 +17,7 @@ vi.mock('src/components/layout/endgame-overlay/endgame-overlay', () => ({
     root.appendChild(p);
   }
 }));
+
 vi.mock('src/components/game/init-game/init-game', () => ({
   initGame: vi.fn(),
 }));

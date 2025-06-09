@@ -54,6 +54,4 @@ export async function playRound(): Promise<void> {
     round: state.round + 1,
     roundOngoing: false
   });
-
-  console.log(winner);
 }
