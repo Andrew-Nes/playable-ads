@@ -2,7 +2,7 @@ import { Card } from "src/utils";
 import { createCardElement } from "src/components/layout/card/card";
 
 
-describe('createEndGameOverlay', () => {
+describe('create card layout', () => {
 
   it('returns a div with class "card-container"', () => {
     const card: Card = { rank: 'A', suit: '♠', value: 12};
