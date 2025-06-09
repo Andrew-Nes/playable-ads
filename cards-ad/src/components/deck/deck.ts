@@ -1,5 +1,4 @@
-import { Card } from "src/utils";
-import {suits, ranks, rankValues} from '../../utils';
+import { Card, suits, ranks, rankValues } from "src/utils";
 
 function createDeck(): Card[] {
   const deck: Card[] = [];

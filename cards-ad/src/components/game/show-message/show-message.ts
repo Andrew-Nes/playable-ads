@@ -1,3 +1,4 @@
+
 export function showMessage(text: string, duration: number): Promise<void> {
   return new Promise ((resolve) => {
     const messageElement: HTMLElement | null = document.querySelector('.message-window');
