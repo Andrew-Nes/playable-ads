@@ -3,14 +3,6 @@ import { createCardElement } from "src/components/layout/card/card";
 
 
 describe('createEndGameOverlay', () => {
-  let root: HTMLElement;
-
-  beforeEach(() => {
-    root = document.createElement('div');
-    document.body.innerHTML = ''; 
-
-    vi.clearAllMocks();
-  });
 
   it('returns a div with class "card-container"', () => {
     const card: Card = { rank: 'A', suit: '♠', value: 12};
