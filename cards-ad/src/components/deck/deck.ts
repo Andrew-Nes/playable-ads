@@ -1,4 +1,6 @@
-import { Card, suits, ranks, rankValues } from "src/utils";
+import { suits, ranks, rankValues } from "src/utils/constants";
+import { Card } from "src/utils/types";
+
 
 function createDeck(): Card[] {
   const deck: Card[] = [];

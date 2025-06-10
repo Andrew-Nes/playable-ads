@@ -1,6 +1,7 @@
 import { showEndGameOverlay } from "../end-game/end-game";
 import { updateGameState } from "../game-state/game-state";
 
+
 let intervalId: number | null = null;
 
 export function startTimer(duration: number): void {

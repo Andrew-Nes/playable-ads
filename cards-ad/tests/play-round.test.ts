@@ -1,7 +1,7 @@
 import { vi, describe, beforeEach, it, expect } from 'vitest';
 
-import { Card } from 'src/utils';
-import * as utils from 'src/utils';
+import { Card } from 'src/utils/types';
+import * as helpers from 'src/utils/helpers';
 
 import { playRound } from 'src/components/game/play-round/play-round';
 import * as state from 'src/components/game/game-state/game-state';
@@ -41,7 +41,7 @@ describe('playRound', () => {
     vi.spyOn(compare, 'compareCards').mockReturnValue('player');
     vi.spyOn(animation, 'flipCardToPlayzone').mockResolvedValue();
     vi.spyOn(message, 'showMessage').mockImplementation(async () => {});
-    vi.spyOn(utils, 'debounce').mockResolvedValue();
+    vi.spyOn(helpers, 'debounce').mockResolvedValue();
     
     await playRound();
 

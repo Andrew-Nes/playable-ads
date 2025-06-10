@@ -1,8 +1,10 @@
-import { debounce, Messages } from "src/utils";
+import { flipCardToPlayzone } from "src/components/animations/flip-card/flip-card";
 import { compareCards } from "../compare-cards/compare-cards";
 import { getGameState, updateGameState } from "../game-state/game-state";
 import { showMessage } from "../show-message/show-message";
-import { flipCardToPlayzone } from "../../animations/flip-card/flip-card";
+
+import { debounce } from "src/utils/helpers";
+import { Messages } from "src/utils/types";
 
 
 export async function playRound(): Promise<void> {

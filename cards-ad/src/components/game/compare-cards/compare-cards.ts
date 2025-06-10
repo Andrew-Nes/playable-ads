@@ -1,4 +1,5 @@
-import { Card } from "src/utils";
+import { Card } from "src/utils/types";
+
 
 export function compareCards(playerCard: Card, dealerCard: Card): 'player' | 'dealer' | 'tie' {
 

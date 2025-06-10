@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+
 import { createTable } from 'src/components/layout/table/table';
+
 
 vi.mock('src/components/layout/messages/messages', () => ({
   createMessageWindow: (root: HTMLElement) => {

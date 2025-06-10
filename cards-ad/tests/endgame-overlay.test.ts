@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { createEndGameOverlay } from 'src/components/layout/endgame-overlay/endgame-overlay';
 
+
 vi.mock('src/components/layout/cta-button/cta-button', () => ({
   createCtaButton : (root: HTMLElement) => {
      const button = document.createElement('button');

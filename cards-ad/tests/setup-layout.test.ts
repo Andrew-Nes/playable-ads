@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { setupLayout } from 'src/components/layout/setup-layout/setup-layout';
 
+
 vi.mock('src/components/layout/table/table', () => ({
   createTable: (root: HTMLElement) => {
     const p = document.createElement('p');

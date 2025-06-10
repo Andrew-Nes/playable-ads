@@ -1,5 +1,6 @@
 import "./cta-button.css";
 
+
 export function createCtaButton (rootElement: HTMLElement) :void {
     const ctaButton = document.createElement('button');
     ctaButton.className = 'cta-button';

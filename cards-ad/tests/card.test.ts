@@ -1,4 +1,4 @@
-import { Card } from "src/utils";
+import { Card } from "src/utils/types";
 import { createCardElement } from "src/components/layout/card/card";
 
 

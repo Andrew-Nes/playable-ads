@@ -1,4 +1,4 @@
-import { Card } from 'src/utils';
+import { Card } from 'src/utils/types';
 
 import './card.css';
 
