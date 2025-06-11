@@ -5,6 +5,8 @@ import { showMessage } from "../show-message/show-message";
 
 import { debounce } from "src/utils/helpers";
 import { Messages } from "src/utils/types";
+import { showEndGameOverlay } from "../end-game/end-game";
+import { stopTimer } from "../timer/timer";
 
 
 export async function playRound(): Promise<void> {
@@ -38,14 +40,19 @@ export async function playRound(): Promise<void> {
     state.dealerHand.push(dealerCard);
   }
   
- 
-    flipCardToPlayzone(playerCard, playerDeck, playerPlay),
-    await debounce(1000);
-    flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay),
-    await debounce(1500);
+  flipCardToPlayzone(playerCard, playerDeck, playerPlay),
+  await debounce(1000);
 
-    await showMessage(Messages[winner], 1000);
+  flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay),
+  await debounce(1500);
 
+  await showMessage(Messages[winner], 1000);
+  
+  if (!state.timer || state.timer <= 0) {
+    showEndGameOverlay();
+    stopTimer();
+  }
+    
   updateGameState({
     playerHand: state.playerHand,
     dealerHand: state.dealerHand,

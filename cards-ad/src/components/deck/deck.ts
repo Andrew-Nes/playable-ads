@@ -1,5 +1,5 @@
 import { suits, ranks, rankValues } from "src/utils/constants";
-import { Card } from "src/utils/types";
+import { Card, Hands } from "src/utils/types";
 
 
 function createDeck(): Card[] {
@@ -21,7 +21,7 @@ function shuffleDeck(deck: Card[]): Card[] {
   return shuffled;
 }
 
-export function dealCards() {
+export function dealCards(): Hands {
   const deck = shuffleDeck(createDeck());
   const half = Math.floor(deck.length / 2);
   const playerHand = deck.slice(0, half);

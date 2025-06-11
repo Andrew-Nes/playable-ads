@@ -1,6 +1,7 @@
 import { getGameState } from "../game-state/game-state";
 
-export function showEndGameOverlay(): void {
+
+export  function showEndGameOverlay(): void {
   const { playerHand, dealerHand, round } = getGameState();
   let winner: 'player' | 'dealer' | 'draw';
 
@@ -27,6 +28,5 @@ export function showEndGameOverlay(): void {
   titleEl.textContent = 'Game Over';
   resultEL.textContent = `Rounds played: ${round - 1}. Winner: ${winner.toUpperCase()}`;
   overlayEl.style.display = 'flex';
-}
-  
+  }
 }

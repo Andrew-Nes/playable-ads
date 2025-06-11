@@ -1,10 +1,9 @@
-import { showEndGameOverlay } from "../end-game/end-game";
 import { updateGameState } from "../game-state/game-state";
 
 
 let intervalId: number | null = null;
 
-export function startTimer(duration: number): void {
+export  function startTimer(duration: number): void {
   let timeLeft = duration;
 
   updateGameState({ timer: timeLeft });
@@ -14,12 +13,6 @@ export function startTimer(duration: number): void {
   intervalId = window.setInterval(() => {
     timeLeft -= 1;
     updateGameState({ timer: timeLeft });
-
-    if (timeLeft <= 0 && intervalId !== null) {
-      clearInterval(intervalId);
-      intervalId = null;
-      showEndGameOverlay();
-    }
   }, 1000);
 }
 
