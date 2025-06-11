@@ -1,9 +1,11 @@
+
 import { createEndGameOverlay } from "../endgame-overlay/endgame-overlay";
 import { createTable } from "../table/table";
 import { initGame } from "src/components/game/init-game/init-game";
 
+import { preloadSounds } from "src/utils/helpers";
 
-export function setupLayout(root: HTMLElement) {
+export async function setupLayout(root: HTMLElement) {
   const title = document.createElement('h1');
   title.className = 'main-title'
   title.textContent = '⚔️ Card Clash ⚔️';
@@ -12,6 +14,8 @@ export function setupLayout(root: HTMLElement) {
   createTable(root);
 
   createEndGameOverlay(root);
+
+  await preloadSounds();
 
   initGame();
 }

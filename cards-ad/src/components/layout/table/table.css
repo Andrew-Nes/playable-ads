@@ -52,6 +52,10 @@
   border: 2px dashed silver;
 }
 
+#player-deck:hover{
+  cursor: pointer;
+}
+
 /* Tablets */
 
 @media (min-width: 768px) {

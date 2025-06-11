@@ -15,6 +15,10 @@ export interface GameState {
   timer: number;
   roundOngoing: boolean;
   }
+  export interface Hands {
+    playerHand: Card[],
+    dealerHand: Card[]
+}
 
   export enum Messages {
   rules = 'Take a card from your deck and compare with dealers card, whose card is elder takes both, and two beats ace. Take as many dealers card as you can to win. Click on your deck to play a round.',

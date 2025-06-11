@@ -16,9 +16,12 @@ export async function initGame(): Promise<void> {
     round: 1,
     roundWinner: null,
     timer: gameTime,
+    roundOngoing: true
   });
 
   await showMessage(Messages.rules, 10000);
 
+  updateGameState({roundOngoing: false})
   startTimer(gameTime);
+
 }

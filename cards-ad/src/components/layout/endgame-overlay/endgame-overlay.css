@@ -7,7 +7,7 @@
   height: 100vh;
   backdrop-filter: blur(var(--blur-strength));
   background: var(--overlay-bg);
-  z-index: 1000;
+  z-index: 999;
   align-items: center;
   justify-content: center;
 }

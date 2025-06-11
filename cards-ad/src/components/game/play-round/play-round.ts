@@ -22,9 +22,6 @@ export async function playRound(): Promise<void> {
   const playerCard = state.playerHand.shift();
   const dealerCard = state.dealerHand.shift();
 
-  console.log(playerDeck, dealerDeck, playerPlay, dealerPlay);
-
-
   if (!playerCard || !dealerCard) {
     console.warn('One of the hands is empty!');
     return;
@@ -41,14 +38,13 @@ export async function playRound(): Promise<void> {
     state.dealerHand.push(dealerCard);
   }
   
-  Promise.all([
+ 
     flipCardToPlayzone(playerCard, playerDeck, playerPlay),
+    await debounce(1000);
     flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay),
-  ]);
+    await debounce(1500);
 
-  await debounce(1000);
-  
-  showMessage(Messages[winner], 1000);
+    await showMessage(Messages[winner], 1000);
 
   updateGameState({
     playerHand: state.playerHand,
