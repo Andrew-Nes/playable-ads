@@ -5,7 +5,6 @@ export interface Card {
   suit: Suit;
   rank: Rank;
   value: number; 
-  side?: string;
 }
 
 export interface GameState {
