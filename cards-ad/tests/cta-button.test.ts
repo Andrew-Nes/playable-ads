@@ -1,6 +1,5 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-
 import { createCtaButton } from 'src/components/layout/cta-button/cta-button';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 describe('Message Window Module', () => {
   let root: HTMLElement;

@@ -1,10 +1,10 @@
 import { dealCards } from 'src/components/deck/deck';
-import { updateGameState } from '../game-state/game-state';
-import { startTimer } from '../timer/timer';
-import { showMessage } from '../show-message/show-message';
-
 import { gameTime } from 'src/utils/constants';
 import { Messages } from 'src/utils/types';
+
+import { updateGameState } from '../game-state/game-state';
+import { showMessage } from '../show-message/show-message';
+import { startTimer } from '../timer/timer';
 
 export async function initGame(): Promise<void> {
   const { playerHand, dealerHand } = dealCards();

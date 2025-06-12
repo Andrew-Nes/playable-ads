@@ -1,13 +1,11 @@
-import { vi, describe, beforeEach, it, expect } from 'vitest';
-
-import { Card } from 'src/utils/types';
-import * as helpers from 'src/utils/helpers';
-
-import { playRound } from 'src/components/game/play-round/play-round';
-import * as state from 'src/components/game/game-state/game-state';
-import * as compare from 'src/components/game/compare-cards/compare-cards';
-import * as message from 'src/components/game/show-message/show-message';
 import * as animation from 'src/components/animations/flip-card/flip-card';
+import * as compare from 'src/components/game/compare-cards/compare-cards';
+import * as state from 'src/components/game/game-state/game-state';
+import { playRound } from 'src/components/game/play-round/play-round';
+import * as message from 'src/components/game/show-message/show-message';
+import * as helpers from 'src/utils/helpers';
+import { Card } from 'src/utils/types';
+import { vi, describe, beforeEach, it, expect } from 'vitest';
 
 describe('playRound', () => {
   beforeEach(() => {

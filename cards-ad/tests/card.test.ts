@@ -1,5 +1,6 @@
-import { Card } from 'src/utils/types';
 import { createCardElement } from 'src/components/layout/card/card';
+import { Card } from 'src/utils/types';
+import { describe, it, expect } from 'vitest';
 
 describe('create card layout', () => {
   it('returns a div with class "card-container"', () => {

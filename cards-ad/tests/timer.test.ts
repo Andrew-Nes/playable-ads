@@ -1,8 +1,7 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-
-import { stopTimer, startTimer } from 'src/components/game/timer/timer';
-import * as gameState from 'src/components/game/game-state/game-state';
 import * as endGame from 'src/components/game/end-game/end-game';
+import * as gameState from 'src/components/game/game-state/game-state';
+import { stopTimer, startTimer } from 'src/components/game/timer/timer';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 describe('timer', () => {
   beforeEach(() => {
@@ -43,7 +42,7 @@ describe('timer', () => {
   });
 
   it('should clear previous timer when starting a new one', () => {
-    const clearSpy = vi.spyOn(global, 'clearInterval');
+    const clearSpy = vi.spyOn(globalThis, 'clearInterval');
 
     startTimer(5);
     const previousCalls = clearSpy.mock.calls.length;

@@ -1,8 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
 import { flipCardToPlayzone } from 'src/components/animations/flip-card/flip-card';
-
 import { Card } from 'src/utils/types';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 vi.mock('src/components/layout/card/card', () => ({
   createCardElement: vi.fn(() => {

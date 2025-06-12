@@ -1,6 +1,5 @@
 import { createCardElement } from 'src/components/layout/card/card';
 import { playSound } from 'src/utils/helpers';
-
 import { Card } from 'src/utils/types';
 
 export async function flipCardToPlayzone(

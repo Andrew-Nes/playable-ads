@@ -1,7 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
-import { setupLayout } from 'src/components/layout/setup-layout/setup-layout';
 import { initGame } from 'src/components/game/init-game/init-game';
+import { setupLayout } from 'src/components/layout/setup-layout/setup-layout';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 vi.mock('src/components/layout/table/table', () => ({
   createTable: (root: HTMLElement) => {

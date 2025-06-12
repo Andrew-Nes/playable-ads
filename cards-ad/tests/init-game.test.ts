@@ -1,14 +1,11 @@
-import { vi, describe, it, expect } from 'vitest';
-
-import { initGame } from 'src/components/game/init-game/init-game';
-
 import * as deck from 'src/components/deck/deck';
 import * as gameState from 'src/components/game/game-state/game-state';
-import * as timer from 'src/components/game/timer/timer';
+import { initGame } from 'src/components/game/init-game/init-game';
 import * as message from 'src/components/game/show-message/show-message';
-
+import * as timer from 'src/components/game/timer/timer';
 import { gameTime } from 'src/utils/constants';
 import { Hands, Messages } from 'src/utils/types';
+import { vi, describe, it, expect } from 'vitest';
 
 vi.mock('src/components/deck/deck');
 vi.mock('src/components/game/game-state/game-state');

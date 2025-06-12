@@ -1,8 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
-import { createEndGameOverlay } from 'src/components/layout/endgame-overlay/endgame-overlay';
 import { showEndGameOverlay } from 'src/components/game/end-game/end-game';
 import * as gameStateModule from 'src/components/game/game-state/game-state';
+import { createEndGameOverlay } from 'src/components/layout/endgame-overlay/endgame-overlay';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 vi.mock('src/components/layout/cta-button/cta-button', () => ({
   createCtaButton: (root: HTMLElement) => {

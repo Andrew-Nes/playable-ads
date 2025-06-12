@@ -1,8 +1,6 @@
-import { describe, it, expect } from 'vitest';
-
 import { compareCards } from 'src/components/game/compare-cards/compare-cards';
-
 import { Card } from 'src/utils/types';
+import { describe, it, expect } from 'vitest';
 
 describe('compareCards', () => {
   it('should give win to player if player has 2 and dealer has A', () => {

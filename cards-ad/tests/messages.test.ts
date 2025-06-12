@@ -1,7 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
 import { showMessage } from 'src/components/game/show-message/show-message';
 import { createMessageWindow } from 'src/components/layout/messages/messages';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 describe('Message Window Module', () => {
   let root: HTMLElement;

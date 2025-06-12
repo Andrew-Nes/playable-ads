@@ -1,3 +1,11 @@
+function hideMessage(element: HTMLElement) {
+  element.textContent = '';
+
+  if (!element.classList.contains('hidden')) {
+    element.classList.add('hidden');
+  }
+}
+
 export function showMessage(text: string, duration: number): Promise<void> {
   return new Promise((resolve) => {
     const messageElement: HTMLElement | null =
@@ -14,12 +22,4 @@ export function showMessage(text: string, duration: number): Promise<void> {
       resolve();
     }, duration);
   });
-}
-
-function hideMessage(element: HTMLElement) {
-  element.textContent = '';
-
-  if (!element.classList.contains('hidden')) {
-    element.classList.add('hidden');
-  }
 }

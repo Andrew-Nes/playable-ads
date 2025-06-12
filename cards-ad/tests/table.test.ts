@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
+import { playRound } from 'src/components/game/play-round/play-round';
 import { createTable } from 'src/components/layout/table/table';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 vi.mock('src/components/layout/messages/messages', () => ({
   createMessageWindow: (root: HTMLElement) => {
@@ -14,8 +14,6 @@ vi.mock('src/components/layout/messages/messages', () => ({
 vi.mock('src/components/game/play-round/play-round', () => ({
   playRound: vi.fn(),
 }));
-
-import { playRound } from 'src/components/game/play-round/play-round';
 
 describe('createTable', () => {
   let root: HTMLElement;

@@ -11,9 +11,11 @@ export function createCardElement(card: Card): HTMLDivElement {
 
   cardContainer.appendChild(cardEl);
 
-  ['♥', '♦'].includes(card.suit)
-    ? cardEl.classList.add('red')
-    : cardEl.classList.add('black');
+  if (['♥', '♦'].includes(card.suit)) {
+    cardEl.classList.add('red');
+  } else {
+    cardEl.classList.add('black');
+  }
 
   cardEl.innerHTML = `
     <div class="card__front">

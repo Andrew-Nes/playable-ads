@@ -1,11 +1,11 @@
 import { flipCardToPlayzone } from 'src/components/animations/flip-card/flip-card';
-import { compareCards } from '../compare-cards/compare-cards';
-import { getGameState, updateGameState } from '../game-state/game-state';
-import { showMessage } from '../show-message/show-message';
-
 import { debounce } from 'src/utils/helpers';
 import { Messages } from 'src/utils/types';
+
+import { compareCards } from '../compare-cards/compare-cards';
 import { showEndGameOverlay } from '../end-game/end-game';
+import { getGameState, updateGameState } from '../game-state/game-state';
+import { showMessage } from '../show-message/show-message';
 import { stopTimer } from '../timer/timer';
 
 export async function playRound(): Promise<void> {
@@ -39,9 +39,11 @@ export async function playRound(): Promise<void> {
     state.dealerHand.push(dealerCard);
   }
 
-  flipCardToPlayzone(playerCard, playerDeck, playerPlay), await debounce(1000);
+  flipCardToPlayzone(playerCard, playerDeck, playerPlay);
+  await debounce(1000);
 
-  flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay), await debounce(1500);
+  flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay);
+  await debounce(1500);
 
   await showMessage(Messages[winner], 1000);
 
