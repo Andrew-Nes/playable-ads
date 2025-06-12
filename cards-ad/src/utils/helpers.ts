@@ -20,3 +20,14 @@ export function playSound(name: string) {
     void sound.play();
   }
 }
+
+export function setFavicon(url: string) {
+  let link: HTMLLinkElement | null =
+    document.querySelector("link[rel~='icon']");
+  if (!link) {
+    link = document.createElement('link');
+    link.setAttribute('rel', 'icon');
+    document.head.appendChild(link);
+  }
+  link.setAttribute('href', url);
+}

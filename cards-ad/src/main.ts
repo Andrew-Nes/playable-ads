@@ -1,4 +1,6 @@
 import { setupLayout } from './components/layout/setup-layout/setup-layout';
+import { faviconUrl } from './utils/constants';
+import { setFavicon } from './utils/helpers';
 
 import './style.css';
 
@@ -8,3 +10,4 @@ if (!appRoot) {
   throw new Error('Game root element not found!');
 }
 setupLayout(appRoot);
+setFavicon(faviconUrl);
