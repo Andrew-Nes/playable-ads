@@ -42,7 +42,7 @@
   box-shadow:
     2px 2px 0px rgba(0, 0, 0, 0.2),
     4px 4px 0px rgba(0, 0, 0, 0.15),
-    6px 6px 0px rgba(0, 0, 0, 0.1); 
+    6px 6px 0px rgba(0, 0, 0, 0.1);
   position: relative;
   transform: rotate(-1deg);
   transition: transform 0.2s;
@@ -52,14 +52,13 @@
   border: 2px dashed silver;
 }
 
-#player-deck:hover{
+#player-deck:hover {
   cursor: pointer;
 }
 
 /* Tablets */
 
 @media (min-width: 768px) {
-  
   .game-table {
     max-width: 600px;
     padding: calc(var(--gap) * 1.2);
@@ -69,7 +68,6 @@
 /* Desctops */
 
 @media (min-width: 1024px) {
-
   .game-table {
     max-width: 720px;
   }

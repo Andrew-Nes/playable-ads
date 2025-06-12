@@ -1,4 +1,3 @@
-
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 import { stopTimer, startTimer } from 'src/components/game/timer/timer';
@@ -13,7 +12,7 @@ describe('timer', () => {
   });
 
   afterEach(() => {
-    stopTimer(); 
+    stopTimer();
     vi.restoreAllMocks();
     vi.useRealTimers();
   });
@@ -39,7 +38,7 @@ describe('timer', () => {
 
     vi.advanceTimersByTime(5000);
 
-    expect(gameState.updateGameState).toHaveBeenCalledTimes(1); 
+    expect(gameState.updateGameState).toHaveBeenCalledTimes(1);
     expect(endGame.showEndGameOverlay).not.toHaveBeenCalled();
   });
 

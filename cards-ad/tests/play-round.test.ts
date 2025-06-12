@@ -9,9 +9,7 @@ import * as compare from 'src/components/game/compare-cards/compare-cards';
 import * as message from 'src/components/game/show-message/show-message';
 import * as animation from 'src/components/animations/flip-card/flip-card';
 
-
 describe('playRound', () => {
-
   beforeEach(() => {
     document.body.innerHTML = `
       <div id="player-deck"></div>
@@ -19,7 +17,7 @@ describe('playRound', () => {
       <div id="player-play"></div>
       <div id="dealer-play"></div>
     `;
-    
+
     vi.restoreAllMocks();
   });
 
@@ -36,20 +34,24 @@ describe('playRound', () => {
       roundOngoing: false,
     };
 
-    const updateGameStateSpy = vi.spyOn(state, 'updateGameState').mockImplementation(() => {});
+    const updateGameStateSpy = vi
+      .spyOn(state, 'updateGameState')
+      .mockImplementation(() => {});
     vi.spyOn(state, 'getGameState').mockReturnValue(structuredClone(mockState));
     vi.spyOn(compare, 'compareCards').mockReturnValue('player');
     vi.spyOn(animation, 'flipCardToPlayzone').mockResolvedValue();
     vi.spyOn(message, 'showMessage').mockImplementation(async () => {});
     vi.spyOn(helpers, 'debounce').mockResolvedValue();
-    
+
     await playRound();
 
-    expect(updateGameStateSpy).toHaveBeenCalledWith(expect.objectContaining({
-      playerHand: [mockPlayerCard, mockDealerCard],
-      dealerHand: [],
-      round: 2,
-      roundOngoing: false
-    }));
+    expect(updateGameStateSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        playerHand: [mockPlayerCard, mockDealerCard],
+        dealerHand: [],
+        round: 2,
+        roundOngoing: false,
+      })
+    );
   });
 });

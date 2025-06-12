@@ -1,7 +1,6 @@
-import { getGameState } from "../game-state/game-state";
+import { getGameState } from '../game-state/game-state';
 
-
-export  function showEndGameOverlay(): void {
+export function showEndGameOverlay(): void {
   const { playerHand, dealerHand, round } = getGameState();
   let winner: 'player' | 'dealer' | 'draw';
 
@@ -14,19 +13,17 @@ export  function showEndGameOverlay(): void {
   }
 
   const overlayEl: HTMLElement | null = document.querySelector('.end-overlay');
-  const titleEl: HTMLElement | null = document.querySelector('.end-title') ;
+  const titleEl: HTMLElement | null = document.querySelector('.end-title');
   const resultEL: HTMLElement | null = document.querySelector('.end-result');
 
   if (!overlayEl || !titleEl || !resultEL) {
     const app = document.getElementById('app');
     const message = document.createElement('h2');
-    message.innerText = "OOPS, something went wrong";
+    message.innerText = 'OOPS, something went wrong';
     app?.appendChild(message);
-  }
-
-  else {
-  titleEl.textContent = 'Game Over';
-  resultEL.textContent = `Rounds played: ${round - 1}. Winner: ${winner.toUpperCase()}`;
-  overlayEl.style.display = 'flex';
+  } else {
+    titleEl.textContent = 'Game Over';
+    resultEL.textContent = `Rounds played: ${round - 1}. Winner: ${winner.toUpperCase()}`;
+    overlayEl.style.display = 'flex';
   }
 }

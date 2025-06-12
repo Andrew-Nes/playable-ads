@@ -2,9 +2,7 @@ import { describe, it, expect } from 'vitest';
 
 import { dealCards } from 'src/components/deck/deck';
 
-
 describe('dealCards', () => {
-
   it('returns two hands with equal length', () => {
     const { playerHand, dealerHand } = dealCards();
     expect(playerHand.length).toBe(dealerHand.length);
@@ -21,7 +19,7 @@ describe('dealCards', () => {
     const allCards = [...playerHand, ...dealerHand];
 
     const uniqueCards = new Set(
-      allCards.map(card => `${card.rank}-${card.suit}`)
+      allCards.map((card) => `${card.rank}-${card.suit}`)
     );
 
     expect(uniqueCards.size).toBe(52);
@@ -31,7 +29,7 @@ describe('dealCards', () => {
     const { playerHand, dealerHand } = dealCards();
     const allCards = [...playerHand, ...dealerHand];
 
-    allCards.forEach(card => {
+    allCards.forEach((card) => {
       expect(card.rank).toBeTypeOf('string');
       expect(card.suit).toBeTypeOf('string');
       expect(card.value).toBeTypeOf('number');
@@ -39,12 +37,15 @@ describe('dealCards', () => {
   });
 
   it('shuffles the deck', () => {
-
     const dealOne = dealCards();
     const dealTwo = dealCards();
 
-    const oneString = dealOne.playerHand.map(card => `${card.rank}-${card.suit}`).join(',');
-    const twoString = dealTwo.playerHand.map(card => `${card.rank}-${card.suit}`).join(',');
+    const oneString = dealOne.playerHand
+      .map((card) => `${card.rank}-${card.suit}`)
+      .join(',');
+    const twoString = dealTwo.playerHand
+      .map((card) => `${card.rank}-${card.suit}`)
+      .join(',');
 
     expect(oneString).not.toBe(twoString);
   });

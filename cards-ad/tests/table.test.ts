@@ -2,11 +2,10 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { createTable } from 'src/components/layout/table/table';
 
-
 vi.mock('src/components/layout/messages/messages', () => ({
   createMessageWindow: (root: HTMLElement) => {
     const p = document.createElement('p');
-    p.className = 'message-window'
+    p.className = 'message-window';
     p.textContent = 'message window created';
     root.appendChild(p);
   },
@@ -45,14 +44,13 @@ describe('createTable', () => {
   });
 
   it('creates messages window,', () => {
-      createTable(root);
-  
-      const p = root.querySelector('.message-window');
-  
-      expect(p).toBeTruthy();
-      expect(p?.textContent).toBe('message window created');
-  
-    });
+    createTable(root);
+
+    const p = root.querySelector('.message-window');
+
+    expect(p).toBeTruthy();
+    expect(p?.textContent).toBe('message window created');
+  });
 
   it('adds click listener to player deck that triggers playRound', () => {
     createTable(root);

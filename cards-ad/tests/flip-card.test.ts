@@ -4,7 +4,6 @@ import { flipCardToPlayzone } from 'src/components/animations/flip-card/flip-car
 
 import { Card } from 'src/utils/types';
 
-
 vi.mock('src/components/layout/card/card', () => ({
   createCardElement: vi.fn(() => {
     const container = document.createElement('div');
@@ -52,10 +51,12 @@ describe('flipCardToPlayzone', () => {
   it('animates card and removes it after timeout', async () => {
     const promise = flipCardToPlayzone(card, fromSlot, toSlot);
 
-    const container = document.body.querySelector('.card-container') as HTMLDivElement;
+    const container = document.body.querySelector(
+      '.card-container'
+    ) as HTMLDivElement;
     expect(container).not.toBeNull();
 
-    await vi.runAllTimersAsync(); 
+    await vi.runAllTimersAsync();
 
     expect(container!.style.left).toBe('200px');
     expect(container!.style.top).toBe('300px');

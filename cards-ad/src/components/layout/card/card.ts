@@ -2,8 +2,6 @@ import { Card } from 'src/utils/types';
 
 import './card.css';
 
-
-
 export function createCardElement(card: Card): HTMLDivElement {
   const cardContainer = document.createElement('div');
   cardContainer.classList.add('card-container');
@@ -13,7 +11,9 @@ export function createCardElement(card: Card): HTMLDivElement {
 
   cardContainer.appendChild(cardEl);
 
-  ['♥', '♦'].includes(card.suit) ? cardEl.classList.add('red') : cardEl.classList.add('black');
+  ['♥', '♦'].includes(card.suit)
+    ? cardEl.classList.add('red')
+    : cardEl.classList.add('black');
 
   cardEl.innerHTML = `
     <div class="card__front">

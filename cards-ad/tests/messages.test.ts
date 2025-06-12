@@ -3,7 +3,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { showMessage } from 'src/components/game/show-message/show-message';
 import { createMessageWindow } from 'src/components/layout/messages/messages';
 
-
 describe('Message Window Module', () => {
   let root: HTMLElement;
 
@@ -41,7 +40,7 @@ describe('Message Window Module', () => {
 
   it('should resolve immediately if message element is not found', async () => {
     const result = await showMessage('No element', 1000);
-    
+
     expect(result).toBeUndefined();
   });
 });

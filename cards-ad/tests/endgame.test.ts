@@ -2,14 +2,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { createEndGameOverlay } from 'src/components/layout/endgame-overlay/endgame-overlay';
 import { showEndGameOverlay } from 'src/components/game/end-game/end-game';
-import * as gameStateModule from 'src/components/game/game-state/game-state'
+import * as gameStateModule from 'src/components/game/game-state/game-state';
 
 vi.mock('src/components/layout/cta-button/cta-button', () => ({
-  createCtaButton : (root: HTMLElement) => {
-     const button = document.createElement('button');
-      button.className = 'button';
-      root.appendChild(button);
-  }
+  createCtaButton: (root: HTMLElement) => {
+    const button = document.createElement('button');
+    button.className = 'button';
+    root.appendChild(button);
+  },
 }));
 
 describe('createEndgameOverlay', () => {
@@ -17,24 +17,28 @@ describe('createEndgameOverlay', () => {
 
   beforeEach(() => {
     root = document.createElement('div');
-    document.body.innerHTML = ''; 
+    document.body.innerHTML = '';
 
     vi.clearAllMocks();
   });
 
   it('creates overlay structure and appends to root', () => {
-       
     createEndGameOverlay(root);
- 
-    const classNames = ['.end-overlay', '.end-popup', '.end-title', '.end-result', '.button'];
-    
+
+    const classNames = [
+      '.end-overlay',
+      '.end-popup',
+      '.end-title',
+      '.end-result',
+      '.button',
+    ];
+
     classNames.forEach((className) => {
-       const element = root.querySelector(className);
-       expect(element).toBeTruthy();
-    })
+      const element = root.querySelector(className);
+      expect(element).toBeTruthy();
+    });
   });
 });
-
 
 describe('showEndGameOverlay', () => {
   beforeEach(() => {
@@ -54,28 +58,35 @@ describe('showEndGameOverlay', () => {
 
   it('displays the correct winner and round info', () => {
     vi.spyOn(gameStateModule, 'getGameState').mockReturnValue({
-      playerHand: [{
-        suit: '♠',
-        rank: '3',
-        value: 3
-      }, {
-        suit: '♠',
-        rank: '2',
-        value: 2
-      }, {
-        suit: '♠',
-        rank: '4',
-        value: 4
-      }],  
-      dealerHand: [{
-        suit: '♠',
-        rank: '5',
-        value: 5
-      }, {
-        suit: '♠',
-        rank: '6',
-        value: 6
-      }],      
+      playerHand: [
+        {
+          suit: '♠',
+          rank: '3',
+          value: 3,
+        },
+        {
+          suit: '♠',
+          rank: '2',
+          value: 2,
+        },
+        {
+          suit: '♠',
+          rank: '4',
+          value: 4,
+        },
+      ],
+      dealerHand: [
+        {
+          suit: '♠',
+          rank: '5',
+          value: 5,
+        },
+        {
+          suit: '♠',
+          rank: '6',
+          value: 6,
+        },
+      ],
       round: 5,
       roundWinner: null,
       timer: 0,
@@ -95,28 +106,35 @@ describe('showEndGameOverlay', () => {
 
   it('handles dealer winning scenario', () => {
     vi.spyOn(gameStateModule, 'getGameState').mockReturnValue({
-      playerHand: [{
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }, {
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }],     
-      dealerHand: [{
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }, {
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }, {
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }], 
+      playerHand: [
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+      ],
+      dealerHand: [
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+      ],
       round: 3,
       roundWinner: null,
       timer: 0,
@@ -131,24 +149,30 @@ describe('showEndGameOverlay', () => {
 
   it('handles draw scenario', () => {
     vi.spyOn(gameStateModule, 'getGameState').mockReturnValue({
-      playerHand: [{
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }, {
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }],      
-      dealerHand: [{
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }, {
-        suit: '♠',
-        rank: '2',
-        value: 0
-      }],      
+      playerHand: [
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+      ],
+      dealerHand: [
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+        {
+          suit: '♠',
+          rank: '2',
+          value: 0,
+        },
+      ],
       round: 2,
       roundWinner: null,
       timer: 0,

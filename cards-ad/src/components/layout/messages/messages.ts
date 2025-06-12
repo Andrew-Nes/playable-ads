@@ -1,6 +1,5 @@
 import './messages.css';
 
-
 export function createMessageWindow(root: HTMLElement): void {
   const messageElement = document.createElement('p');
   messageElement.classList.add('message-window');

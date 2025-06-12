@@ -45,7 +45,6 @@ export default [
         },
       ],
 
-
       'no-use-before-define': ['off'],
       '@typescript-eslint/no-use-before-define': ['error'],
 
@@ -98,7 +97,7 @@ export default [
       'vite.config.ts',
       'package.json',
       'package-lock.json',
-      'tsconfig.json', 
+      'tsconfig.json',
       'vitest.config.ts',
     ],
   },

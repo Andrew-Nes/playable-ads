@@ -1,6 +1,5 @@
-import { gameTime } from "src/utils/constants";
-import { GameState } from "src/utils/types";
-
+import { gameTime } from 'src/utils/constants';
+import { GameState } from 'src/utils/types';
 
 let state: GameState = {
   playerHand: [],
@@ -8,7 +7,7 @@ let state: GameState = {
   round: 1,
   roundWinner: null,
   timer: gameTime,
-  roundOngoing: false
+  roundOngoing: false,
 };
 
 export function getGameState(): Readonly<GameState> {

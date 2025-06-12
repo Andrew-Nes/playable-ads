@@ -1,20 +1,19 @@
-import { flipCardToPlayzone } from "src/components/animations/flip-card/flip-card";
-import { compareCards } from "../compare-cards/compare-cards";
-import { getGameState, updateGameState } from "../game-state/game-state";
-import { showMessage } from "../show-message/show-message";
+import { flipCardToPlayzone } from 'src/components/animations/flip-card/flip-card';
+import { compareCards } from '../compare-cards/compare-cards';
+import { getGameState, updateGameState } from '../game-state/game-state';
+import { showMessage } from '../show-message/show-message';
 
-import { debounce } from "src/utils/helpers";
-import { Messages } from "src/utils/types";
-import { showEndGameOverlay } from "../end-game/end-game";
-import { stopTimer } from "../timer/timer";
-
+import { debounce } from 'src/utils/helpers';
+import { Messages } from 'src/utils/types';
+import { showEndGameOverlay } from '../end-game/end-game';
+import { stopTimer } from '../timer/timer';
 
 export async function playRound(): Promise<void> {
   const state = getGameState();
 
   if (state.roundOngoing) return;
 
-  updateGameState({roundOngoing: true})
+  updateGameState({ roundOngoing: true });
 
   const playerDeck = document.querySelector('#player-deck') as HTMLElement;
   const dealerDeck = document.querySelector('#dealer-deck') as HTMLElement;
@@ -39,24 +38,22 @@ export async function playRound(): Promise<void> {
     state.playerHand.push(playerCard);
     state.dealerHand.push(dealerCard);
   }
-  
-  flipCardToPlayzone(playerCard, playerDeck, playerPlay),
-  await debounce(1000);
 
-  flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay),
-  await debounce(1500);
+  flipCardToPlayzone(playerCard, playerDeck, playerPlay), await debounce(1000);
+
+  flipCardToPlayzone(dealerCard, dealerDeck, dealerPlay), await debounce(1500);
 
   await showMessage(Messages[winner], 1000);
-  
+
   if (!state.timer || state.timer <= 0) {
     showEndGameOverlay();
     stopTimer();
   }
-    
+
   updateGameState({
     playerHand: state.playerHand,
     dealerHand: state.dealerHand,
     round: state.round + 1,
-    roundOngoing: false
+    roundOngoing: false,
   });
 }

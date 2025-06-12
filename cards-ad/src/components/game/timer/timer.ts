@@ -1,9 +1,8 @@
-import { updateGameState } from "../game-state/game-state";
-
+import { updateGameState } from '../game-state/game-state';
 
 let intervalId: number | null = null;
 
-export  function startTimer(duration: number): void {
+export function startTimer(duration: number): void {
   let timeLeft = duration;
 
   updateGameState({ timer: timeLeft });

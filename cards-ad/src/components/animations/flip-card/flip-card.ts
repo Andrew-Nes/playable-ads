@@ -1,18 +1,17 @@
-import { createCardElement } from "src/components/layout/card/card";
-import { playSound } from "src/utils/helpers";
+import { createCardElement } from 'src/components/layout/card/card';
+import { playSound } from 'src/utils/helpers';
 
-import { Card } from "src/utils/types";
+import { Card } from 'src/utils/types';
 
-
-export async function flipCardToPlayzone (
+export async function flipCardToPlayzone(
   cardData: Card,
   fromSlot: HTMLElement,
-  toSlot: HTMLElement, 
+  toSlot: HTMLElement
 ): Promise<void> {
   return new Promise((resolve) => {
     const cardContainer = createCardElement(cardData);
     document.body.appendChild(cardContainer);
-    
+
     const cardShowTime = fromSlot.id === 'player-deck' ? 2500 : 1500;
 
     const fromRect = fromSlot.getBoundingClientRect();
@@ -36,7 +35,7 @@ export async function flipCardToPlayzone (
       setTimeout(() => {
         cardContainer.remove();
         resolve();
-      }, cardShowTime); 
+      }, cardShowTime);
     });
   });
 }

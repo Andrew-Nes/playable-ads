@@ -3,9 +3,7 @@ import { createMessageWindow } from '../messages/messages';
 
 import './table.css';
 
-
 export function createTable(root: HTMLElement) {
-
   const table = document.createElement('div');
   table.className = 'game-table';
 
@@ -19,7 +17,7 @@ export function createTable(root: HTMLElement) {
 
   const dealerDeck = document.createElement('div');
   dealerDeck.className = 'card-slot deck-slot';
-  dealerDeck.id = 'dealer-deck'
+  dealerDeck.id = 'dealer-deck';
   dealerZone.appendChild(dealerDeck);
 
   const playerZone = document.createElement('div');
@@ -34,14 +32,14 @@ export function createTable(root: HTMLElement) {
   playerDeck.className = 'card-slot deck-slot';
   playerDeck.id = 'player-deck';
   playerZone.appendChild(playerDeck);
-  
+
   root.appendChild(table);
   table.appendChild(dealerZone);
   table.appendChild(playerZone);
-  
+
   createMessageWindow(table);
 
   playerDeck.addEventListener('click', () => {
-  playRound();
+    playRound();
   });
 }

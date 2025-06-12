@@ -3,13 +3,12 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { setupLayout } from 'src/components/layout/setup-layout/setup-layout';
 import { initGame } from 'src/components/game/init-game/init-game';
 
-
 vi.mock('src/components/layout/table/table', () => ({
   createTable: (root: HTMLElement) => {
     const p = document.createElement('p');
     p.textContent = 'table created';
     root.appendChild(p);
-  }
+  },
 }));
 
 vi.mock('src/components/layout/endgame-overlay/endgame-overlay', () => ({
@@ -17,7 +16,7 @@ vi.mock('src/components/layout/endgame-overlay/endgame-overlay', () => ({
     const p = document.createElement('p');
     p.textContent = 'overlay created';
     root.appendChild(p);
-  }
+  },
 }));
 
 vi.mock('src/components/game/init-game/init-game', () => ({
@@ -27,7 +26,6 @@ vi.mock('src/components/game/init-game/init-game', () => ({
 vi.mock('src/utils/helpers', () => ({
   preloadSounds: vi.fn(() => Promise.resolve({ flip: 'mock-sound' })),
 }));
-
 
 describe('setupLayout', () => {
   let root: HTMLElement;
@@ -55,7 +53,6 @@ describe('setupLayout', () => {
 
     expect(p).toBeTruthy();
     expect(p?.textContent).toBe('table created');
-
   });
 
   it('creates EndGameOverlay', () => {
@@ -65,7 +62,6 @@ describe('setupLayout', () => {
 
     expect(p).toBeTruthy();
     expect(p?.textContent).toBe('table created');
-
   });
 
   it('calls initGame', async () => {

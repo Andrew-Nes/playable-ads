@@ -1,12 +1,11 @@
-import { createCtaButton } from "../cta-button/cta-button";
+import { createCtaButton } from '../cta-button/cta-button';
 
 import './endgame-overlay.css';
-
 
 export function createEndGameOverlay(rootElement: HTMLElement): void {
   const overlay = document.createElement('div');
   overlay.className = 'end-overlay';
- 
+
   const popup = document.createElement('div');
   popup.className = 'end-popup';
 

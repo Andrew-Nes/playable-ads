@@ -17,15 +17,18 @@ vi.mock('src/components/game/show-message/show-message');
 
 describe('initGame', () => {
   it('initializes the game properly', async () => {
-
     const mockHands: Hands = {
       playerHand: [{ suit: '♠', rank: 'A', value: 14 }],
-      dealerHand: [{ suit: '♣', rank: 'K', value: 13 }]
+      dealerHand: [{ suit: '♣', rank: 'K', value: 13 }],
     };
     const dealCardsSPy = vi.spyOn(deck, 'dealCards').mockReturnValue(mockHands);
-    const updateGameStateSpy = vi.spyOn(gameState, 'updateGameState').mockImplementation(() => {});
+    const updateGameStateSpy = vi
+      .spyOn(gameState, 'updateGameState')
+      .mockImplementation(() => {});
     const showMessageSpy = vi.spyOn(message, 'showMessage').mockResolvedValue();
-    const startTimerSpy = vi.spyOn(timer, 'startTimer').mockImplementation(() => {});
+    const startTimerSpy = vi
+      .spyOn(timer, 'startTimer')
+      .mockImplementation(() => {});
 
     await initGame();
 
@@ -36,7 +39,7 @@ describe('initGame', () => {
       round: 1,
       roundWinner: null,
       timer: gameTime,
-      roundOngoing: true
+      roundOngoing: true,
     });
     expect(showMessageSpy).toHaveBeenCalledWith(Messages.rules, 10000);
     expect(startTimerSpy).toHaveBeenCalledWith(gameTime);
