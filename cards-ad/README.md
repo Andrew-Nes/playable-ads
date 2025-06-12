@@ -1,6 +1,6 @@
 #  Card Clash - Playable ad style html game.
 
-A short playable ad style hml game designed to demonstrate to a user a piece of gameplay of a casual card game.
+A short playable ad style hml game designed to demonstrate to a user a piece of gameplay of a casual card game. Game rules: a card deck is shuffled and split in half between a  player and a dealer, rhe game consists of rounds, in each of them a player clicks on  his deck to take a card from top, then dealers card is taken. The cards are compared and who's card is elder wins round and gets both cards, with one exeption (2 is elder than ace). Whoever takes more rounds in 30 seconds is praised as a winner or a draw is declared if round wins number is equal for both participants.
 
 ##  Features
 
@@ -39,3 +39,4 @@ A short playable ad style hml game designed to demonstrate to a user a piece of 
   - prettier - to auto-format your code in certain style;
   - test - to run tests;
   - coverage - to run tests with coverage;
+
