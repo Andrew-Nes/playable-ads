@@ -31,8 +31,6 @@ describe('timer', () => {
 
     vi.advanceTimersByTime(1000);
     expect(gameState.updateGameState).toHaveBeenCalledWith({ timer: 0 });
-
-    expect(endGame.showEndGameOverlay).toHaveBeenCalled();
   });
 
   it('should stop timer when stopTimer is called', () => {

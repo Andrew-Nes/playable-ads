@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 import { setupLayout } from 'src/components/layout/setup-layout/setup-layout';
+import { initGame } from 'src/components/game/init-game/init-game';
 
 
 vi.mock('src/components/layout/table/table', () => ({
@@ -23,7 +24,9 @@ vi.mock('src/components/game/init-game/init-game', () => ({
   initGame: vi.fn(),
 }));
 
-import { initGame } from 'src/components/game/init-game/init-game';
+vi.mock('src/utils/helpers', () => ({
+  preloadSounds: vi.fn(() => Promise.resolve({ flip: 'mock-sound' })),
+}));
 
 
 describe('setupLayout', () => {
@@ -65,8 +68,8 @@ describe('setupLayout', () => {
 
   });
 
-  it('calls initGame', () => {
-    setupLayout(root);
+  it('calls initGame', async () => {
+    await setupLayout(root);
 
     expect(initGame).toHaveBeenCalled();
   });

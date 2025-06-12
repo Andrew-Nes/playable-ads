@@ -36,6 +36,7 @@ describe('initGame', () => {
       round: 1,
       roundWinner: null,
       timer: gameTime,
+      roundOngoing: true
     });
     expect(showMessageSpy).toHaveBeenCalledWith(Messages.rules, 10000);
     expect(startTimerSpy).toHaveBeenCalledWith(gameTime);
