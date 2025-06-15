@@ -4,7 +4,7 @@ import { setFavicon } from './utils/helpers';
 
 import './style.css';
 
-const appRoot = document.querySelector<HTMLDivElement>('#app');
+const appRoot = document.querySelector<HTMLElement>('main#app');
 
 if (!appRoot) {
   throw new Error('Game root element not found!');
