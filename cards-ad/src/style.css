@@ -1,0 +1,123 @@
+:root {
+  /* Basics */
+  --basic-font-size: 1rem;
+  --spacing: 10px;
+  --gap: 24px;
+
+  /* Cards */
+  --card-width: 60px;
+  --card-height: 90px;
+  --card-radius: 8px;
+  --card-bg: white;
+  --card-border: #999;
+  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  /* Table */
+  --table-max-width: 360px;
+  --bg-color: linear-gradient(135deg, #054d1c, #0c3815);
+  --table-color: #1c1f26;
+  --felt-color: #2e3b2c;
+  --text-color: #ffffff;
+  --border-radius: 12px;
+  --highlight: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* Popup - Colors */
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --popup-bg: #fff;
+  --popup-text: #333;
+  --cta-bg: #0074d9;
+  --cta-text: #fff;
+
+  /* Popup - Sizing & Spacing */
+  --popup-padding: 1.25rem;
+  --popup-border-radius: 0.75rem;
+  --popup-width: 90%;
+  --popup-max-width: 320px;
+  --title-font-size: 1.5rem;
+  --cta-padding: 0.75rem 1.5rem;
+
+  /* Popup - Effects */
+  --blur-strength: 6px;
+  --popup-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+  /* Message */
+  --message-font-size: 1rem;
+  --message-bg: rgba(0, 0, 0, 0.7);
+  --message-color: #fff;
+  --message-padding: 0.75rem 1rem;
+  --message-radius: 12px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 var(--spacing);
+  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(30, 30, 30, 0.85) 0%,
+      rgba(18, 18, 18, 0.95) 100%
+    ),
+    url('../public/images/main-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing);
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  :root {
+    --card-width: 80px;
+    --card-height: 120px;
+    --gap: 32px;
+    --basic-font-size: 1.125rem;
+    --popup-font-size: 1.125rem;
+    --title-font-size: 2rem;
+    --message-font-size: 1.125rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+  :root {
+    --card-width: 100px;
+    --card-height: 150px;
+    --gap: 40px;
+    --popup-max-width: 480px;
+    --popup-font-size: 1.25rem;
+    --title-font-size: 2.25rem;
+    --message-font-size: 1.25rem;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+}

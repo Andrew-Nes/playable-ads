@@ -1,0 +1,74 @@
+.game-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
+  width: 96%;
+  max-width: var(--table-max-width);
+  padding: var(--gap);
+  background-color: var(--felt-color);
+  background-image: url('../../../../public/images/table-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.zone {
+  display: flex;
+  gap: var(--gap);
+}
+
+.card-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+}
+
+.deck-slot {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  background-image: url('../../../../public/images/card-back.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    2px 2px 0px rgba(0, 0, 0, 0.2),
+    4px 4px 0px rgba(0, 0, 0, 0.15),
+    6px 6px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transform: rotate(-1deg);
+  transition: transform 0.2s;
+}
+
+.play-slot {
+  border: 2px dashed silver;
+}
+
+#player-deck:hover {
+  cursor: pointer;
+}
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  .game-table {
+    max-width: 600px;
+    padding: calc(var(--gap) * 1.2);
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+  .game-table {
+    max-width: 720px;
+  }
+}

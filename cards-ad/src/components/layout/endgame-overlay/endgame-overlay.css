@@ -1,0 +1,67 @@
+.end-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(var(--blur-strength));
+  background: var(--overlay-bg);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.end-popup {
+  background-image: url('../../../../public/images/popup-bg.avif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  color: var(--popup-text);
+  padding: var(--popup-padding);
+  border-radius: var(--popup-border-radius);
+  max-width: var(--popup-max-width);
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--popup-shadow);
+  font-size: var(--popup-font-size);
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.end-title {
+  font-size: var(--title-font-size);
+  margin-bottom: 0.75rem;
+}
+
+.end-result {
+  font-size: var(--result-font-size);
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  .end-popup {
+    max-width: 400px;
+    padding: calc(var(--popup-padding) * 1.25);
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+  .end-popup {
+    padding: 2rem;
+  }
+}

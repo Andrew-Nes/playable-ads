@@ -1,0 +1,35 @@
+.cta-button {
+  display: inline-block;
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+  font-size: var(--basic-font-size);
+  font-weight: 600;
+  text-decoration: none;
+  padding: var(--cta-padding);
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #005fa3;
+  cursor: pointer;
+}
+
+/* Tablets */
+
+@media (min-width: 768px) {
+  .cta-button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Desctops */
+
+@media (min-width: 1024px) {
+  .cta-button {
+    font-size: 1.25rem;
+    padding: 1.25rem 2.25rem;
+  }
+}
